@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "367183333425",
+    "project_id": "blocpettern",
+    "storage_bucket": "blocpettern.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367183333425:android:af5bff024c8bf7c78f2d10",
+        "android_client_info": {
+          "package_name": "com.example.bloc_pettern"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367183333425-udo9c1vvcjsbcnvaic95g7k6tqj55jlh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bloc_pettern",
+            "certificate_hash": "4c1c72e1608d65c078caa20ba8321fee513d9fc1"
+          }
+        },
+        {
+          "client_id": "367183333425-9ip8oc5cjlfse3h13si9nq53jb6k6srq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD00haXaQ94uSM4-for2aMK49w4UoJM5yg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367183333425-9ip8oc5cjlfse3h13si9nq53jb6k6srq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
