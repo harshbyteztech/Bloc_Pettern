@@ -5,7 +5,7 @@ abstract class ApiState{}
 class ApiLoadingState extends ApiState{}
 
 class ApiLoadedState extends ApiState{
-  List<Model>? Models;
+  Future<bool>? Models;
    ApiLoadedState({this.Models});
 }
 

@@ -10,9 +10,9 @@ import '../../Screen/ApiScreen.dart';
 class validationBloc extends Bloc<validationEvent,validationState>{
   validationBloc() : super(validationInitialState()){
     on<validationFieldEvent>((event, emit) {
-      if( EmailValidator.validate("${event.email}") == false){
-        emit(validationErrorState(ErrorMessage: 'Please Enter Valid Email'));
-      } else if(event.password!.length < 8){
+      if(event.email!.length <10){
+        emit(validationErrorState(ErrorMessage: 'Please Enter Valid Number'));
+      } else if(event.password!.length < 5){
         emit(validationErrorState(ErrorMessage: 'Please Enter Valid Password'));
       }
       else{

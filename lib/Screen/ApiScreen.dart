@@ -15,21 +15,21 @@ class ApiScreen extends StatelessWidget {
         title: Text('Api Data Get Example'),
         centerTitle: true,
       ),
-      body: BlocBuilder<ApiBloc,ApiState>(builder: (context, state) {
-        if(state is ApiLoadingState){
-          return  Center(child: CircularProgressIndicator(),);
-        } else if(state is ApiLoadedState){
-          return ListView.builder(
-              itemCount: state.Models?.length,
-              itemBuilder: (context, index) {
-                var data = state.Models?[index];
-                return ListTile(
-                    title: Text("${data?.title}"),
-                    subtitle: Text('${data?.body}'));
-              });
-        }
-        return Center(child: Text('An error occured!'),);
-      },),
+      // body: BlocBuilder<ApiBloc,ApiState>(builder: (context, state) {
+      //   if(state is ApiLoadingState){
+      //     return  Center(child: CircularProgressIndicator(),);
+      //   } else if(state is ApiLoadedState){
+      //     return ListView.builder(
+      //         itemCount: state.Models?.length,
+      //         itemBuilder: (context, index) {
+      //           var data = state.Models?[index];
+      //           return ListTile(
+      //               title: Text("${data?.title}"),
+      //               subtitle: Text('${data?.body}'));
+      //         });
+      //   }
+      //   return Center(child: Text('An error occured!'),);
+      // },),
     );
   }
 }

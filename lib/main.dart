@@ -6,6 +6,8 @@ import 'package:bloc_pettern/Screen/HomeScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'Bloc/PostApiBloc/PostApiBloc.dart';
+import 'Screen/PostApiScreen.dart';
 import 'Screen/ValidationScreen.dart';
 
 void main() async{
@@ -25,13 +27,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => ConnectivityBloc(),),
         BlocProvider(create: (context) => validationBloc(),),
         BlocProvider(create: (context) => ApiBloc(),),
+        BlocProvider(create: (context) => PostApiBloc(),),
       ],
       child: MaterialApp(
         title: 'Bloc Pettern',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home:ValidationScreen(),
+        home:PostApiScreen(),
       ),
     );
   }

@@ -1,8 +1,14 @@
 import 'package:bloc_pettern/Bloc/ApiBloc/ApiBlocState.dart';
 import 'package:bloc_pettern/Services/ApiServices.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../Models/UserDataModel.dart';
+import '../ValidationBloc/ValidationEvent.dart';
+
+
+TextEditingController Email = TextEditingController();
+TextEditingController Password = TextEditingController();
 
 class ApiBloc extends Cubit<ApiState> {
   ApiBloc() : super(ApiLoadingState()){
@@ -11,10 +17,12 @@ class ApiBloc extends Cubit<ApiState> {
 
   void fetchData() async {
     try {
-      List<Model>? model = await fetchAlbum();
+      Future<bool>? model;
       emit(ApiLoadedState(Models: model));
     } catch(ex){
       emit(ApiErrorState(ErrorMessage: ex.toString()));
     }
   }
+
+
 }

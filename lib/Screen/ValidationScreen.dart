@@ -1,6 +1,9 @@
+import 'package:bloc_pettern/Bloc/ApiBloc/ApiBloc.dart';
+import 'package:bloc_pettern/Bloc/ApiBloc/ApiBlocState.dart';
 import 'package:bloc_pettern/Bloc/ValidationBloc/ValidationBloc.dart';
 import 'package:bloc_pettern/Bloc/ValidationBloc/ValidationEvent.dart';
 import 'package:bloc_pettern/Screen/HomeScreen.dart';
+import 'package:bloc_pettern/Services/ApiServices.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,16 +13,15 @@ import 'ApiScreen.dart';
 
 class ValidationScreen extends StatelessWidget {
   ValidationScreen({Key? key}) : super(key: key);
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+
   FirebaseAuth auth = FirebaseAuth.instance;
 
   login(context)async{
     BlocProvider.of<validationBloc>(context)
-        .add(validationButtonEvent(email: email.text,password: password.text));
-   validationBloc().DataAdd(password: password.text,context: context,email: email.text);
+        .add(validationButtonEvent(email: Email.text,password: Password.text));
+   // validationBloc().DataAdd(password: password.text,context: context,email: mail.text);
     BlocProvider.of<validationBloc>(context)
-        .add(validationFieldEvent(email: email.text,password: password.text));
+        .add(validationFieldEvent(email: Email.text,password: Password.text));
   }
 
   @override
@@ -49,24 +51,24 @@ class ValidationScreen extends StatelessWidget {
                 height: 10,
               ),
               TextFormField(
-                  controller: email,
+                  controller: Email,
                   onChanged: (value) {
                     BlocProvider.of<validationBloc>(context)
                         .add(validationFieldEvent(
-                      email: email.text,
-                      password: password.text,
+                      email: Email.text,
+                      password: Password.text,
                     ));
                   }),
               SizedBox(
                 height: 8,
               ),
               TextFormField(
-                  controller: password,
+                  controller: Password,
                   onChanged: (value) {
                     BlocProvider.of<validationBloc>(context)
                         .add(validationFieldEvent(
-                      email: email.text,
-                      password: password.text,
+                      email: Email.text,
+                      password: Password.text,
                     ));
                   }),
               SizedBox(
@@ -80,7 +82,7 @@ class ValidationScreen extends StatelessWidget {
                         ? login(context)
                         : print("Don't navigat you");
                   },
-                  child: state is validationLoadingState? Center(child: CircularProgressIndicator()): Container(
+                  child: state is ApiLoadingState? Center(child: CircularProgressIndicator()): Container(
                     height: 50,
                     width: double.infinity,
                     decoration: BoxDecoration(

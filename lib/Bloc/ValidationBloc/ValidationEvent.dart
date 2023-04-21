@@ -13,6 +13,6 @@ class validationButtonEvent extends validationEvent{
   String?password;
   FirebaseAuth auth = FirebaseAuth.instance;
   validationButtonEvent({this.email,this.password});
-
-
 }
+
+
