@@ -22,12 +22,13 @@ class PostApiScreen extends StatelessWidget {
   // bool  values = false;
 
   login(context)async{
-    BlocProvider.of<PostApiBloc>(context)
-        .add(PostApiButtonEvent(model: fetchAlbum(email: Email.text,password: Password.text)?.then((value) {
-      print('value  =====> $value');
-      value == true? BlocProvider.of<PostApiBloc>(context).add(PostApiLoadingEvent()):null;
-          return  value;
-    })));
+    BlocProvider.of<PostApiBloc>(context).add(PostApiButtonEvent(Email: Email.text,Password: Password.text));
+    // BlocProvider.of<PostApiBloc>(context)
+    //     .add(PostApiButtonEvent(model: fetchAlbum(email: Email.text,password: Password.text)?.then((value) {
+    //   print('value  =====> $value');
+    //   value == true? BlocProvider.of<PostApiBloc>(context).add(PostApiLoadingEvent()):null;
+    //       return  value;
+    // })));
   }
 
   @override
@@ -35,26 +36,26 @@ class PostApiScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Validation Example'),
+        title: const Text('Validation Example'),
         centerTitle: true,
       ),
       body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextFormField(
                   controller: Email,),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               TextFormField(
                   controller: Password,
                  ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               BlocBuilder<PostApiBloc, PostApiState>(
@@ -63,13 +64,14 @@ class PostApiScreen extends StatelessWidget {
                       onTap: () {
                        login(context);
                       },
-                      child: state is PostApiLoadedState? Center(child: CircularProgressIndicator()): Container(
+                      child: state is PostApiLoadingState? const Center(child: CircularProgressIndicator())
+                          : Container(
                         height: 50,
                         width: double.infinity,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Colors.grey),
-                        child: Center(
+                        child: const Center(
                           child: Text("Login",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20)),

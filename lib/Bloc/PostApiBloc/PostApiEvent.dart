@@ -4,5 +4,6 @@ abstract class PostApiEvent{}
 class PostApiLoadingEvent extends PostApiEvent{}
 
 class PostApiButtonEvent extends PostApiEvent{
-  Future<bool>? model;
-  PostApiButtonEvent({this.model});}
+  String?Email;
+  String?Password;
+  PostApiButtonEvent({this.Email,this.Password});}
